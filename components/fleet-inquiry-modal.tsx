@@ -65,7 +65,7 @@ export function FleetInquiryModal({ vehicle, onClose }: { vehicle: Vehicle; onCl
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 p-2 backdrop-blur-sm sm:p-6" onMouseDown={(event) => event.target === event.currentTarget && onClose()}>
       <div role="dialog" aria-modal="true" aria-labelledby="inquiry-title" className="relative max-h-[calc(100dvh-1rem)] w-full max-w-[780px] overscroll-contain overflow-y-auto rounded-[22px] bg-white shadow-2xl sm:max-h-[92dvh] sm:rounded-[28px] lg:max-h-[88dvh]">
-        <button type="button" onClick={onClose} aria-label="Close inquiry" className="sticky right-3 top-3 z-20 float-right -mb-10 mr-3 mt-3 grid h-11 w-11 place-items-center rounded-full border border-black/10 bg-white text-black shadow-lg transition hover:bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 sm:right-5 sm:top-5"><X className="h-5 w-5" /></button>
+        <button type="button" onClick={onClose} aria-label="Close inquiry" className="absolute right-4 top-4 z-20 grid h-10 w-10 place-items-center text-white drop-shadow-md transition hover:opacity-60 focus:outline-none focus:ring-2 focus:ring-white md:text-black md:drop-shadow-none md:focus:ring-black"><X className="h-6 w-6" /></button>
         <div className="grid md:grid-cols-[.68fr_1.32fr]">
           <aside className="relative min-h-48 overflow-hidden bg-black text-white sm:min-h-60 md:min-h-full">
             <img src={vehicle.image} alt={vehicle.name} className="absolute inset-0 h-full w-full object-cover opacity-70" />
