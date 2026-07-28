@@ -543,12 +543,12 @@ function Testimonials() {
 
   useEffect(() => {
     if (paused) return;
-    const timer = window.setInterval(
+    const timer = window.setTimeout(
       () => setActive((current) => (current + 1) % testimonials.length),
       3500,
     );
-    return () => window.clearInterval(timer);
-  }, [paused]);
+    return () => window.clearTimeout(timer);
+  }, [active, paused]);
 
   return (
     <section
