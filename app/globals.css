@@ -6,9 +6,3 @@ html{scrollbar-color:#525252 #e5e5e5;scrollbar-width:auto}
 ::-webkit-scrollbar-track{background:#e5e5e5}
 ::-webkit-scrollbar-thumb{background:#525252;border:2px solid #e5e5e5;border-radius:999px}
 ::-webkit-scrollbar-thumb:hover{background:#303030}
-
-@keyframes testimonial-enter-next{from{opacity:0;transform:translateX(22px);filter:blur(2px)}to{opacity:1;transform:translateX(0);filter:blur(0)}}
-@keyframes testimonial-enter-prev{from{opacity:0;transform:translateX(-22px);filter:blur(2px)}to{opacity:1;transform:translateX(0);filter:blur(0)}}
-.testimonial-enter-next{animation:testimonial-enter-next .6s cubic-bezier(.22,1,.36,1) both}
-.testimonial-enter-prev{animation:testimonial-enter-prev .6s cubic-bezier(.22,1,.36,1) both}
-@media(prefers-reduced-motion:reduce){.testimonial-enter-next,.testimonial-enter-prev{animation:none}}
