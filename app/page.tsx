@@ -538,7 +538,6 @@ function Steps() {
 function Testimonials() {
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
-  const testimonial = testimonials[active];
   const move = (direction: number) =>
     setActive(
       (current) =>
@@ -549,7 +548,7 @@ function Testimonials() {
     if (paused) return;
     const timer = window.setInterval(
       () => setActive((current) => (current + 1) % testimonials.length),
-      5000,
+      6000,
     );
     return () => window.clearInterval(timer);
   }, [paused]);
@@ -595,7 +594,20 @@ function Testimonials() {
           </div>
         </div>
         <div>
-          <div className="rounded-2xl border border-neutral-200 bg-neutral-50 p-8 sm:p-12">
+          <div
+            className="overflow-hidden rounded-2xl border border-neutral-200 bg-neutral-50"
+            aria-live="polite"
+          >
+            <div
+              className="flex transition-transform duration-700 ease-[cubic-bezier(.22,1,.36,1)]"
+              style={{ transform: `translateX(-${active * 100}%)` }}
+            >
+              {testimonials.map((testimonial, slideIndex) => (
+                <article
+                  key={testimonial.name}
+                  className="w-full shrink-0 p-8 sm:p-12"
+                  aria-hidden={active !== slideIndex}
+                >
             <div className="flex gap-1" aria-label="5 out of 5 stars">
               {Array.from({ length: 5 }).map((_, index) => (
                 <Star key={index} className="h-4 w-4 fill-black text-black" />
@@ -612,6 +624,9 @@ function Testimonials() {
                 <p>{testimonial.name}</p>
                 <p className="text-sm text-neutral-500">{testimonial.role}</p>
               </div>
+            </div>
+                </article>
+              ))}
             </div>
           </div>
           <div className="mt-4 flex gap-2">
