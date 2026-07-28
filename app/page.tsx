@@ -534,19 +534,22 @@ function Steps() {
 function Testimonials() {
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [direction, setDirection] = useState<1 | -1>(1);
   const testimonial = testimonials[active];
-  const move = (direction: number) =>
+  const move = (nextDirection: 1 | -1) => {
+    setDirection(nextDirection);
     setActive(
       (current) =>
-        (current + direction + testimonials.length) % testimonials.length,
+        (current + nextDirection + testimonials.length) % testimonials.length,
     );
+  };
 
   useEffect(() => {
     if (paused) return;
-    const timer = window.setTimeout(
-      () => setActive((current) => (current + 1) % testimonials.length),
-      3500,
-    );
+    const timer = window.setTimeout(() => {
+      setDirection(1);
+      setActive((current) => (current + 1) % testimonials.length);
+    }, 3500);
     return () => window.clearTimeout(timer);
   }, [active, paused]);
 
@@ -598,7 +601,10 @@ function Testimonials() {
           onFocusCapture={() => setPaused(true)}
           onBlurCapture={() => setPaused(false)}
         >
-          <div className="rounded-2xl border border-neutral-200 bg-neutral-50 p-8 sm:p-12">
+          <div
+            key={active}
+            className={`rounded-2xl border border-neutral-200 bg-neutral-50 p-8 sm:p-12 ${direction === 1 ? "testimonial-enter-next" : "testimonial-enter-prev"}`}
+          >
             <div className="flex gap-1" aria-label="5 out of 5 stars">
               {Array.from({ length: 5 }).map((_, index) => (
                 <Star key={index} className="h-4 w-4 fill-black text-black" />
@@ -623,7 +629,11 @@ function Testimonials() {
                 type="button"
                 key={item.name}
                 aria-label={`Go to testimonial ${index + 1}`}
-                onClick={() => setActive(index)}
+                onClick={() => {
+                  if (index === active) return;
+                  setDirection(index > active ? 1 : -1);
+                  setActive(index);
+                }}
                 className={`h-1 rounded-full transition-all ${active === index ? "w-10 bg-black" : "w-5 bg-neutral-200 hover:bg-neutral-300"}`}
               />
             ))}
