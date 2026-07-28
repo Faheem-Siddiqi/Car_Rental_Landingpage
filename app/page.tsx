@@ -17,7 +17,24 @@ import {
 import { Header } from "@/components/header";
 import { FleetInquiryModal } from "@/components/fleet-inquiry-modal";
 import fleetData from "@/data/fleet.json";
+import faqData from "@/data/faqs.json";
+import routesData from "@/data/routes.json";
 const wa = "https://wa.me/923075011252";
+const routeWhatsAppUrl = (route: (typeof routesData.routes)[number]) => {
+  const message = [
+    "Hello Moveit Cars!",
+    "",
+    "*ROUTE INQUIRY*",
+    "",
+    `*${route.from} to ${route.to}*`,
+    `• Estimated duration: ${route.duration}`,
+    `• Distance: ${route.distanceKm.toLocaleString("en-PK")} km`,
+    `• Starting price: Rs. ${route.startingPrice.toLocaleString("en-PK")}`,
+    "",
+    "Please confirm availability and share the final quote. Thank you!",
+  ].join("\n");
+  return `${wa}?text=${encodeURIComponent(message)}`;
+};
 const dynamicFleet = fleetData.categories.flatMap((category) =>
   category.vehicles.map((vehicle) => ({ ...vehicle, category: category.name })),
 );
@@ -93,28 +110,7 @@ const services = [
     Clock,
   ],
 ] as const;
-const faqs = [
-  [
-    "How do I book a car?",
-    "Book using WhatsApp or call our 24/7 team. Once you’re happy with the price, we’ll confirm your booking and assign a driver.",
-  ],
-  [
-    "What type of vehicles do you offer?",
-    "Our fleet ranges from 4-seater executive sedans and MPVs to Hi-Ace and Coasters for large groups.",
-  ],
-  [
-    "Are your drivers verified?",
-    "All drivers are fully licensed, police verified, and professionally trained for your safety and comfort.",
-  ],
-  [
-    "Can I modify my booking?",
-    "Yes. Contact support to modify pickup time, location, or vehicle type. Changes are best made 24 hours in advance.",
-  ],
-  [
-    "Do you provide airport transfers?",
-    "Yes, we cover all major Pakistani airports and track flights to adjust for delays.",
-  ],
-];
+const faqs = faqData.faqs;
 const testimonials = [
   {
     quote:
@@ -353,20 +349,20 @@ export default function Home() {
               <h2 className="title mt-6">Common questions, answered.</h2>
             </div>
             <div>
-              {faqs.map(([q, a], i) => (
-                <div className="border-b" key={q}>
+              {faqs.map((item, i) => (
+                <div className="border-b" key={item.id}>
                   <button
                     onClick={() => setFaq(faq === i ? -1 : i)}
                     className="flex w-full items-center justify-between py-6 text-left font-semibold"
                   >
-                    {q}
+                    {item.question}
                     <ChevronDown
                       className={`h-5 w-5 transition ${faq === i ? "rotate-180" : ""}`}
                     />
                   </button>
                   {faq === i && (
                     <p className="pb-6 pr-10 text-sm leading-relaxed text-neutral-600">
-                      {a}
+                      {item.answer}
                     </p>
                   )}
                 </div>
@@ -644,17 +640,22 @@ function Routes() {
         <Label>Popular routes</Label>
         <h2 className="title mt-6">Our most popular Pakistani routes.</h2>
         <div className="mt-10 divide-y border-y">
-          {[
-            ["Lahore", "Islamabad", "4h 30m", "375 km", "18,000"],
-            ["Islamabad", "Murree", "1h 30m", "64 km", "6,500"],
-            ["Islamabad", "Karachi", "18h", "1,410 km", "55,000"],
-            ["Islamabad", "Naran", "5h", "239 km", "22,000"],
-            ["Islamabad", "Swat", "5h 30m", "270 km", "24,000"],
-          ].map((r, i) => (
+          {routesData.routes.map((route) => [
+            route.from,
+            route.to,
+            route.duration,
+            `${route.distanceKm.toLocaleString("en-PK")} km`,
+            route.startingPrice.toLocaleString("en-PK"),
+            routeWhatsAppUrl(route),
+            route.id,
+          ]).map((r, i) => (
             <a
-              href={wa}
+              href={r[5]}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`Inquire about travel from ${r[0]} to ${r[1]} on WhatsApp`}
               className="grid items-center gap-4 py-5 sm:grid-cols-[50px_1fr_auto_auto]"
-              key={i}
+              key={r[6]}
             >
               <span className="text-neutral-400">0{i + 1}</span>
               <b className="text-lg sm:text-xl">

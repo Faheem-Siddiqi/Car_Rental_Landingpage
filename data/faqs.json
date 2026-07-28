@@ -1,0 +1,9 @@
+{
+  "faqs": [
+    { "id": "booking", "question": "How do I book a car?", "answer": "Book using WhatsApp or call our 24/7 team. Once you are happy with the price, we will confirm your booking and assign a driver." },
+    { "id": "vehicles", "question": "What type of vehicles do you offer?", "answer": "Our fleet ranges from 4-seater executive sedans and MPVs to Hi-Ace and Coasters for large groups." },
+    { "id": "drivers", "question": "Are your drivers verified?", "answer": "All drivers are fully licensed, police verified, and professionally trained for your safety and comfort." },
+    { "id": "modify-booking", "question": "Can I modify my booking?", "answer": "Yes. Contact support to modify pickup time, location, or vehicle type. Changes are best made 24 hours in advance." },
+    { "id": "airport-transfers", "question": "Do you provide airport transfers?", "answer": "Yes, we cover all major Pakistani airports and track flights to adjust for delays." }
+  ]
+}

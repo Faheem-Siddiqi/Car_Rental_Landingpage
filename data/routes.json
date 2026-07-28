@@ -1,0 +1,9 @@
+{
+  "routes": [
+    { "id": "lahore-islamabad", "from": "Lahore", "to": "Islamabad", "duration": "4h 30m", "distanceKm": 375, "startingPrice": 18000 },
+    { "id": "islamabad-murree", "from": "Islamabad", "to": "Murree", "duration": "1h 30m", "distanceKm": 64, "startingPrice": 6500 },
+    { "id": "islamabad-karachi", "from": "Islamabad", "to": "Karachi", "duration": "18h", "distanceKm": 1410, "startingPrice": 55000 },
+    { "id": "islamabad-naran", "from": "Islamabad", "to": "Naran", "duration": "5h", "distanceKm": 239, "startingPrice": 22000 },
+    { "id": "islamabad-swat", "from": "Islamabad", "to": "Swat", "duration": "5h 30m", "distanceKm": 270, "startingPrice": 24000 }
+  ]
+}
