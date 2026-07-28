@@ -15,7 +15,7 @@
           "name": "Suzuki Alto",
           "description": "Economical and reliable. Perfect for quick city trips.",
           "pricePerDay": 3999,
-          "passengers": 4,
+          "passengers": 8,
           "image": "/images/fleet/suzuki-alto.jpg"
         }
       ]
