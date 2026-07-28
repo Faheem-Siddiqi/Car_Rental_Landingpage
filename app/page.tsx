@@ -15,6 +15,7 @@ import {
   Wallet,
 } from "lucide-react";
 import { Header } from "@/components/header";
+import { FleetInquiryModal } from "@/components/fleet-inquiry-modal";
 import fleetData from "@/data/fleet.json";
 const wa = "https://wa.me/923075011252";
 const dynamicFleet = fleetData.categories.flatMap((category) =>
@@ -47,6 +48,7 @@ const fleetFromJson = dynamicFleet.map(
       vehicle.image,
       fleetWhatsAppUrl(vehicle),
       vehicle.passengers,
+      vehicle,
     ] as const,
 );
 const services = [
@@ -182,7 +184,10 @@ function Stat({
 }
 export default function Home() {
   const [filter, setFilter] = useState("All"),
-    [faq, setFaq] = useState(0);
+    [faq, setFaq] = useState(0),
+    [selectedVehicle, setSelectedVehicle] = useState<
+      (typeof dynamicFleet)[number] | null
+    >(null);
   return (
     <>
       <Header />
@@ -283,8 +288,18 @@ export default function Home() {
                 .filter((x) => filter === "All" || x[0] === filter)
                 .map((x) => (
                   <article
-                    className="group overflow-hidden rounded-2xl border bg-white"
+                    className="group cursor-pointer overflow-hidden rounded-2xl border bg-white transition hover:-translate-y-1 hover:shadow-xl"
                     key={x[1]}
+                    role="button"
+                    tabIndex={0}
+                    aria-label={`View rental inquiry for ${x[1]}`}
+                    onClick={() => setSelectedVehicle(x[7])}
+                    onKeyDown={(event) => {
+                      if (event.key === "Enter" || event.key === " ") {
+                        event.preventDefault();
+                        setSelectedVehicle(x[7]);
+                      }
+                    }}
                   >
                     <div className="aspect-[4/3] overflow-hidden bg-neutral-100">
                       <img
@@ -314,15 +329,13 @@ export default function Home() {
                           <br />
                           <b className="text-xl text-black">Rs. {x[3]}</b>/day
                         </span>
-                        <a
-                          href={x[5]}
-                          target="_blank"
-                          rel="noreferrer"
-                          aria-label={`Book ${x[1]} on WhatsApp`}
+                        <button
+                          type="button"
+                          aria-label={`Inquire about ${x[1]}`}
                           className="grid h-10 w-10 place-items-center rounded-full bg-black text-white"
                         >
                           <ArrowUpRight className="h-4 w-4" />
-                        </a>
+                        </button>
                       </div>
                     </div>
                   </article>
@@ -364,6 +377,12 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
+      {selectedVehicle && (
+        <FleetInquiryModal
+          vehicle={selectedVehicle}
+          onClose={() => setSelectedVehicle(null)}
+        />
+      )}
     </>
   );
 }
