@@ -549,7 +549,7 @@ function Testimonials() {
     if (paused) return;
     const timer = window.setInterval(
       () => setActive((current) => (current + 1) % testimonials.length),
-      5000,
+      3500,
     );
     return () => window.clearInterval(timer);
   }, [paused]);
@@ -558,10 +558,6 @@ function Testimonials() {
     <section
       className="section bg-white"
       aria-labelledby="testimonials-title"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-      onFocusCapture={() => setPaused(true)}
-      onBlurCapture={() => setPaused(false)}
     >
       <div className="shell grid gap-12 lg:grid-cols-[.8fr_1.2fr] lg:gap-20">
         <div className="flex flex-col justify-between">
@@ -571,7 +567,13 @@ function Testimonials() {
               Thousands of Pakistanis trust Moveit Cars every day.
             </h2>
           </div>
-          <div className="mt-8 flex items-center gap-3">
+          <div
+            className="mt-8 flex items-center gap-3"
+            onMouseEnter={() => setPaused(true)}
+            onMouseLeave={() => setPaused(false)}
+            onFocusCapture={() => setPaused(true)}
+            onBlurCapture={() => setPaused(false)}
+          >
             <button
               type="button"
               aria-label="Previous testimonial"
@@ -594,7 +596,12 @@ function Testimonials() {
             </span>
           </div>
         </div>
-        <div>
+        <div
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
+          onFocusCapture={() => setPaused(true)}
+          onBlurCapture={() => setPaused(false)}
+        >
           <div className="rounded-2xl border border-neutral-200 bg-neutral-50 p-8 sm:p-12">
             <div className="flex gap-1" aria-label="5 out of 5 stars">
               {Array.from({ length: 5 }).map((_, index) => (
