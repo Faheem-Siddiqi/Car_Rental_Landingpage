@@ -20,6 +20,10 @@ const wa = "https://wa.me/923075011252";
 const dynamicFleet = fleetData.categories.flatMap((category) =>
   category.vehicles.map((vehicle) => ({ ...vehicle, category: category.name })),
 );
+const featuredVehicle =
+  dynamicFleet.find(
+    (vehicle) => vehicle.id === fleetData.featuredVehicleId,
+  ) ?? dynamicFleet[0];
 const fleetCategories = [
   "All",
   ...fleetData.categories.map((category) => category.name),
@@ -218,8 +222,8 @@ export default function Home() {
             <div className="mt-14 grid gap-4 sm:grid-cols-12">
               <div className="relative col-span-12 overflow-hidden rounded-2xl sm:col-span-8">
                 <img
-                  src="/images/fleet/land-cruiser-prado.jpg"
-                  alt="Luxury SUV for rent"
+                  src={featuredVehicle.image}
+                  alt={`${featuredVehicle.name} for rent`}
                   className="aspect-[16/10] h-full w-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent" />
@@ -228,12 +232,14 @@ export default function Home() {
                     <small className="font-semibold uppercase tracking-wider">
                       Featured
                     </small>
-                    <p className="text-2xl font-bold">Land Cruiser Prado</p>
+                      <p className="text-2xl font-bold">
+                        {featuredVehicle.name}
+                      </p>
                   </div>
                   <div className="text-right">
                     <small>from</small>
                     <p className="text-2xl font-bold">
-                      Rs. 20,000
+                        Rs. {featuredVehicle.pricePerDay.toLocaleString("en-PK")}
                       <span className="text-sm font-normal">/day</span>
                     </p>
                   </div>
