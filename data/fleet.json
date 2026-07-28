@@ -1,5 +1,10 @@
 {
-  "featuredVehicleId": "land-cruiser-prado",
+  "featuredVehicle": {
+    "id": "land-cruiser-prado",
+    "name": "Land Cruiser Prado",
+    "image": "/images/fleet/land-cruiser-prado.jpg",
+    "pricePerDay": 20000
+  },
   "categories": [
     {
       "id": "economy",

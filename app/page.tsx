@@ -20,10 +20,7 @@ const wa = "https://wa.me/923075011252";
 const dynamicFleet = fleetData.categories.flatMap((category) =>
   category.vehicles.map((vehicle) => ({ ...vehicle, category: category.name })),
 );
-const featuredVehicle =
-  dynamicFleet.find(
-    (vehicle) => vehicle.id === fleetData.featuredVehicleId,
-  ) ?? dynamicFleet[0];
+const featuredVehicle = fleetData.featuredVehicle;
 const fleetCategories = [
   "All",
   ...fleetData.categories.map((category) => category.name),
@@ -689,7 +686,7 @@ function Footer() {
         src="/images/footerOverlay.png"
         alt=""
         aria-hidden="true"
-        className="pointer-events-none absolute -bottom-20 -right-32 h-[125%] w-auto max-w-none object-cover object-center opacity-[.12] grayscale"
+        className="pointer-events-none absolute -bottom-20  h-[125%] w-auto max-w-none object-cover object-center opacity-[.12] grayscale"
       />
       <div className="relative z-10 shell">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.1fr_.7fr_.8fr_1.4fr]">
