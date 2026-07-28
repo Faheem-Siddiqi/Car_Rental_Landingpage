@@ -1,0 +1,118 @@
+{
+  "categories": [
+    {
+      "id": "economy",
+      "name": "Economy",
+      "vehicles": [
+        {
+          "id": "suzuki-alto",
+          "name": "Suzuki Alto",
+          "description": "Economical and reliable. Perfect for quick city trips.",
+          "pricePerDay": 3999,
+          "passengers": 4,
+          "image": "https://images.pexels.com/photos/116675/pexels-photo-116675.jpeg?auto=compress&cs=tinysrgb&w=900"
+        }
+      ]
+    },
+    {
+      "id": "sedan",
+      "name": "Sedan",
+      "vehicles": [
+        {
+          "id": "toyota-yaris",
+          "name": "Toyota Yaris",
+          "description": "Comfortable and stylish sedan for city & intercity travel.",
+          "pricePerDay": 5999,
+          "passengers": 4,
+          "image": "https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg?auto=compress&cs=tinysrgb&w=900"
+        },
+        {
+          "id": "toyota-corolla-gli",
+          "name": "Toyota Corolla GLi",
+          "description": "The trusted choice for smooth, long-distance journeys.",
+          "pricePerDay": 6499,
+          "passengers": 4,
+          "image": "https://images.pexels.com/photos/358070/pexels-photo-358070.jpeg?auto=compress&cs=tinysrgb&w=900"
+        }
+      ]
+    },
+    {
+      "id": "executive",
+      "name": "Executive",
+      "vehicles": [
+        {
+          "id": "toyota-corolla-altis",
+          "name": "Toyota Corolla Altis",
+          "description": "Premium feel with advanced comfort for a true executive ride.",
+          "pricePerDay": 8000,
+          "passengers": 4,
+          "image": "https://images.pexels.com/photos/1149831/pexels-photo-1149831.jpeg?auto=compress&cs=tinysrgb&w=900"
+        }
+      ]
+    },
+    {
+      "id": "luxury",
+      "name": "Luxury",
+      "vehicles": [
+        {
+          "id": "honda-civic",
+          "name": "Honda Civic",
+          "description": "Sleek design with an extremely comfortable, luxurious cabin.",
+          "pricePerDay": 9999,
+          "passengers": 4,
+          "image": "https://images.pexels.com/photos/112460/pexels-photo-112460.jpeg?auto=compress&cs=tinysrgb&w=900"
+        }
+      ]
+    },
+    {
+      "id": "crossover",
+      "name": "Crossover",
+      "vehicles": [
+        {
+          "id": "hyundai-tucson",
+          "name": "Hyundai Tucson",
+          "description": "High-end crossover with spacious interior for maximum comfort.",
+          "pricePerDay": 14999,
+          "passengers": 4,
+          "image": "https://images.pexels.com/photos/1592384/pexels-photo-1592384.jpeg?auto=compress&cs=tinysrgb&w=900"
+        }
+      ]
+    },
+    {
+      "id": "suv",
+      "name": "SUV",
+      "vehicles": [
+        {
+          "id": "toyota-fortuner",
+          "name": "Toyota Fortuner",
+          "description": "Ideal for family trips and events. Robust layout with ample storage.",
+          "pricePerDay": 18000,
+          "passengers": 4,
+          "image": "https://images.pexels.com/photos/1335077/pexels-photo-1335077.jpeg?auto=compress&cs=tinysrgb&w=900"
+        },
+        {
+          "id": "land-cruiser-prado",
+          "name": "Land Cruiser Prado",
+          "description": "Ultimate luxury, power and presence. Maximum safety and comfort.",
+          "pricePerDay": 20000,
+          "passengers": 4,
+          "image": "https://images.pexels.com/photos/3729464/pexels-photo-3729464.jpeg?auto=compress&cs=tinysrgb&w=900"
+        }
+      ]
+    },
+    {
+      "id": "4x4",
+      "name": "4x4",
+      "vehicles": [
+        {
+          "id": "toyota-hilux-revo",
+          "name": "Toyota Hilux Revo",
+          "description": "A rugged and reliable 4x4 pickup built for tough terrains.",
+          "pricePerDay": 18000,
+          "passengers": 4,
+          "image": "https://images.pexels.com/photos/1638459/pexels-photo-1638459.jpeg?auto=compress&cs=tinysrgb&w=900"
+        }
+      ]
+    }
+  ]
+}
