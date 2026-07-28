@@ -288,7 +288,7 @@ export default function Home() {
                 .filter((x) => filter === "All" || x[0] === filter)
                 .map((x) => (
                   <article
-                    className="group cursor-pointer overflow-hidden rounded-2xl border bg-white transition hover:-translate-y-1 hover:shadow-xl"
+                    className="group cursor-pointer overflow-hidden rounded-2xl border bg-white transition hover:shadow-xl"
                     key={x[1]}
                     role="button"
                     tabIndex={0}
