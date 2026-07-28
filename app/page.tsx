@@ -218,7 +218,7 @@ export default function Home() {
             <div className="mt-14 grid gap-4 sm:grid-cols-12">
               <div className="relative col-span-12 overflow-hidden rounded-2xl sm:col-span-8">
                 <img
-                  src="https://images.pexels.com/photos/3729464/pexels-photo-3729464.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                  src="/images/fleet/land-cruiser-prado.jpg"
                   alt="Luxury SUV for rent"
                   className="aspect-[16/10] h-full w-full object-cover"
                 />
@@ -396,7 +396,7 @@ function About() {
       <div className="shell grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-20">
         <div className="relative">
           <img
-            src="https://images.pexels.com/photos/13861/IMG_3496bfree.jpg?auto=compress&cs=tinysrgb&w=1200"
+            src="/images/about/professional-driver.jpg"
             alt="Professional driver"
             className="aspect-[4/5] w-full rounded-2xl object-cover"
           />

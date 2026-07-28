@@ -10,7 +10,7 @@
           "description": "Economical and reliable. Perfect for quick city trips.",
           "pricePerDay": 3999,
           "passengers": 4,
-          "image": "https://images.pexels.com/photos/116675/pexels-photo-116675.jpeg?auto=compress&cs=tinysrgb&w=900"
+          "image": "/images/fleet/suzuki-alto.jpg"
         }
       ]
     },
@@ -24,7 +24,7 @@
           "description": "Comfortable and stylish sedan for city & intercity travel.",
           "pricePerDay": 5999,
           "passengers": 4,
-          "image": "https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg?auto=compress&cs=tinysrgb&w=900"
+          "image": "/images/fleet/toyota-yaris.jpg"
         },
         {
           "id": "toyota-corolla-gli",
@@ -32,7 +32,7 @@
           "description": "The trusted choice for smooth, long-distance journeys.",
           "pricePerDay": 6499,
           "passengers": 4,
-          "image": "https://images.pexels.com/photos/358070/pexels-photo-358070.jpeg?auto=compress&cs=tinysrgb&w=900"
+          "image": "/images/fleet/toyota-corolla-gli.jpg"
         }
       ]
     },
@@ -46,7 +46,7 @@
           "description": "Premium feel with advanced comfort for a true executive ride.",
           "pricePerDay": 8000,
           "passengers": 4,
-          "image": "https://images.pexels.com/photos/1149831/pexels-photo-1149831.jpeg?auto=compress&cs=tinysrgb&w=900"
+          "image": "/images/fleet/toyota-corolla-altis.jpg"
         }
       ]
     },
@@ -60,7 +60,7 @@
           "description": "Sleek design with an extremely comfortable, luxurious cabin.",
           "pricePerDay": 9999,
           "passengers": 4,
-          "image": "https://images.pexels.com/photos/112460/pexels-photo-112460.jpeg?auto=compress&cs=tinysrgb&w=900"
+          "image": "/images/fleet/honda-civic.jpg"
         }
       ]
     },
@@ -74,7 +74,7 @@
           "description": "High-end crossover with spacious interior for maximum comfort.",
           "pricePerDay": 14999,
           "passengers": 4,
-          "image": "https://images.pexels.com/photos/1592384/pexels-photo-1592384.jpeg?auto=compress&cs=tinysrgb&w=900"
+          "image": "/images/fleet/hyundai-tucson.jpg"
         }
       ]
     },
@@ -88,7 +88,7 @@
           "description": "Ideal for family trips and events. Robust layout with ample storage.",
           "pricePerDay": 18000,
           "passengers": 4,
-          "image": "https://images.pexels.com/photos/1335077/pexels-photo-1335077.jpeg?auto=compress&cs=tinysrgb&w=900"
+          "image": "/images/fleet/toyota-fortuner.jpg"
         },
         {
           "id": "land-cruiser-prado",
@@ -96,7 +96,7 @@
           "description": "Ultimate luxury, power and presence. Maximum safety and comfort.",
           "pricePerDay": 20000,
           "passengers": 4,
-          "image": "https://images.pexels.com/photos/3729464/pexels-photo-3729464.jpeg?auto=compress&cs=tinysrgb&w=900"
+          "image": "/images/fleet/land-cruiser-prado.jpg"
         }
       ]
     },
@@ -110,7 +110,7 @@
           "description": "A rugged and reliable 4x4 pickup built for tough terrains.",
           "pricePerDay": 18000,
           "passengers": 4,
-          "image": "https://images.pexels.com/photos/1638459/pexels-photo-1638459.jpeg?auto=compress&cs=tinysrgb&w=900"
+          "image": "/images/fleet/toyota-hilux-revo.jpg"
         }
       ]
     }
