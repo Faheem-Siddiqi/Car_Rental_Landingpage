@@ -1,0 +1,2 @@
+import type { Config } from "tailwindcss";
+export default {darkMode:["class"],content:["./app/**/*.{ts,tsx}","./components/**/*.{ts,tsx}"],theme:{extend:{colors:{background:"hsl(var(--background))",foreground:"hsl(var(--foreground))",primary:"hsl(var(--primary))",border:"hsl(var(--border))"},fontFamily:{sans:["var(--font-manrope)","Manrope","system-ui","sans-serif"]},boxShadow:{soft:"0 20px 50px rgba(20,30,40,.08)"}}},plugins:[]} satisfies Config;

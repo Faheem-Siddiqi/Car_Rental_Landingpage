@@ -1,0 +1,9 @@
+#home h1 {
+  max-width: 56rem;
+  text-wrap: balance;
+  letter-spacing: -0.04em;
+}
+
+#home .shell > p {
+  text-wrap: pretty;
+}
