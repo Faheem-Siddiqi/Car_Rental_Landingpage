@@ -64,13 +64,13 @@ export function FleetInquiryModal({ vehicle, onClose }: { vehicle: Vehicle; onCl
   const labelClass = "text-xs text-neutral-500";
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-end justify-center bg-black/60 p-0 backdrop-blur-sm sm:items-center sm:p-6" onMouseDown={(event) => event.target === event.currentTarget && onClose()}>
-      <div role="dialog" aria-modal="true" aria-labelledby="inquiry-title" className="max-h-[96vh] w-full max-w-5xl overflow-y-auto rounded-t-[28px] bg-white shadow-2xl sm:rounded-[28px]">
-        <div className="grid lg:grid-cols-[.85fr_1.15fr]">
-          <aside className="relative min-h-72 overflow-hidden bg-black text-white lg:min-h-full">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 p-3 backdrop-blur-sm sm:p-6" onMouseDown={(event) => event.target === event.currentTarget && onClose()}>
+      <div role="dialog" aria-modal="true" aria-labelledby="inquiry-title" className="max-h-[92dvh] w-full max-w-4xl overflow-y-auto rounded-[24px] bg-white shadow-2xl sm:rounded-[28px]">
+        <div className="grid md:grid-cols-[.72fr_1.28fr]">
+          <aside className="relative min-h-52 overflow-hidden bg-black text-white sm:min-h-60 md:min-h-full">
             <img src={vehicle.image} alt={vehicle.name} className="absolute inset-0 h-full w-full object-cover opacity-70" />
             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
-            <div className="relative flex min-h-72 h-full flex-col justify-end p-7 sm:p-9">
+            <div className="relative flex min-h-52 h-full flex-col justify-end p-6 sm:min-h-60 sm:p-7 md:min-h-full">
               <span className="text-xs uppercase tracking-[.18em] text-neutral-300">{vehicle.category}</span>
               <h2 id="inquiry-title" className="mt-2 text-3xl tracking-tight">{vehicle.name}</h2>
               <p className="mt-3 max-w-md text-sm leading-relaxed text-neutral-300">{vehicle.description}</p>
@@ -81,7 +81,7 @@ export function FleetInquiryModal({ vehicle, onClose }: { vehicle: Vehicle; onCl
             </div>
           </aside>
 
-          <div className="relative p-6 sm:p-9">
+          <div className="relative p-5 sm:p-7">
             <button type="button" onClick={onClose} aria-label="Close inquiry" className="absolute right-5 top-5 grid h-10 w-10 place-items-center rounded-full border bg-white transition hover:bg-neutral-50"><X className="h-4 w-4" /></button>
             <div className="pr-12">
               <span className="flex items-center gap-2 text-xs uppercase tracking-[.16em] text-neutral-500"><Car className="h-4 w-4" />Rental inquiry</span>
