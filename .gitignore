@@ -4,6 +4,7 @@ node_modules.incomplete/
 
 # Next.js build output
 .next/
+.next-dev/
 out/
 
 # TypeScript caches
@@ -22,3 +23,7 @@ npm-debug.log*
 .idea/
 .DS_Store
 Thumbs.db
+
+# Local design references
+local.png
+reference.png
