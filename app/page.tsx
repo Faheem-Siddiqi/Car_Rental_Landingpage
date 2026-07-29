@@ -19,6 +19,11 @@ import { FleetInquiryModal } from "@/components/fleet-inquiry-modal";
 import fleetData from "@/data/fleet.json";
 import faqData from "@/data/faqs.json";
 import routesData from "@/data/routes.json";
+const moveGlow = (event: React.PointerEvent<HTMLElement>) => {
+  const bounds = event.currentTarget.getBoundingClientRect();
+  event.currentTarget.style.setProperty("--glow-x", `${event.clientX - bounds.left}px`);
+  event.currentTarget.style.setProperty("--glow-y", `${event.clientY - bounds.top}px`);
+};
 const wa = "https://wa.me/923075011252";
 const routeWhatsAppUrl = (route: (typeof routesData.routes)[number]) => {
   const message = [
@@ -151,7 +156,7 @@ const testimonials = [
 function Label({ children }: { children: React.ReactNode }) {
   return (
     <span className="flex items-center gap-2 text-sm font-semibold text-neutral-500">
-      <span className="h-px w-6 bg-black" />
+      <span className="h-px w-6 bg-current" />
       {children}
     </span>
   );
@@ -167,7 +172,8 @@ function Stat({
 }) {
   return (
     <div
-      className={`flex flex-col justify-between rounded-2xl p-6 ${dark ? "bg-black text-white" : "bg-neutral-100"}`}
+      className={`flex flex-col justify-between rounded-2xl p-6 ${dark ? "mouse-glow bg-black text-white" : "bg-neutral-100"}`}
+      onPointerMove={dark ? moveGlow : undefined}
     >
       <b className="text-5xl tracking-[-.06em]">{n}</b>
       <p
@@ -392,7 +398,10 @@ function Ticker() {
     ["/icons/marquee/car.svg", "Modern, serviced fleet"],
   ];
   return (
-    <div className="overflow-hidden border-y border-neutral-200 bg-black py-4 text-white">
+    <div
+      className="mouse-glow overflow-hidden border-y border-neutral-200 bg-black py-4 text-white"
+      onPointerMove={moveGlow}
+    >
       <div className="animate-marquee flex w-max gap-12">
         {[...a, ...a].map(([icon, text], i) => (
           <span
@@ -499,10 +508,15 @@ function Services() {
 }
 function Steps() {
   return (
-    <section className="section bg-black text-white">
+    <section
+      className="mouse-glow section bg-black text-white"
+      onPointerMove={moveGlow}
+    >
       <div className="shell">
         <Label>How booking works</Label>
-        <h2 className="title mt-6">Book your car in three easy steps.</h2>
+        <h2 className="premium-dark-heading title mt-6">
+          Book your car in three easy steps.
+        </h2>
         <div className="mt-12 grid gap-px overflow-hidden rounded-2xl bg-neutral-700 md:grid-cols-3">
           {[
             [
@@ -676,12 +690,15 @@ function Routes() {
 }
 function Contact() {
   return (
-    <section className="bg-black py-20 text-center text-white">
+    <section
+      className="mouse-glow bg-black py-20 text-center text-white"
+      onPointerMove={moveGlow}
+    >
       <div className="shell">
         <span className="text-sm text-neutral-400">
           Available 24/7 across Pakistan
         </span>
-        <h2 className="mx-auto mt-5 max-w-3xl text-4xl font-bold tracking-[-.05em] sm:text-6xl">
+        <h2 className="premium-dark-heading mx-auto mt-5 max-w-3xl text-4xl font-bold tracking-[-.05em] sm:text-6xl">
           Ready to travel? Let&apos;s get you there.
         </h2>
         <p className="mt-5 text-neutral-400">
@@ -713,7 +730,7 @@ function Footer() {
         src="/images/footerOverlay.png"
         alt=""
         aria-hidden="true"
-        className="pointer-events-none absolute -bottom-20  h-[125%] w-auto max-w-none object-cover object-center opacity-[.12] grayscale"
+        className="pointer-events-none absolute -bottom-24 left-5 w-auto max-w-none -scale-x-100 object-cover object-center opacity-[.12] grayscale"
       />
       <div className="relative z-10 shell">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.1fr_.7fr_.8fr_1.4fr]">
@@ -731,7 +748,7 @@ function Footer() {
             <div className="mt-4 grid gap-2 text-sm text-neutral-400">
               {["About", "Services", "Fleet", "Routes", "FAQ"].map((x) => (
                 <a
-                  className="transition hover:text-white"
+                  className="footer-link hover:text-white"
                   href={`#${x.toLowerCase()}`}
                   key={x}
                 >
@@ -744,21 +761,21 @@ function Footer() {
             <b>Contact</b>
             <div className="mt-4 grid gap-2 text-sm text-neutral-400">
               <a
-                className="transition hover:text-white"
+                className="footer-link hover:text-white"
                 href="tel:+923075011252"
                 aria-label="Call Moveit Cars"
               >
                 Call now
               </a>
               <a
-                className="transition hover:text-white"
+                className="footer-link hover:text-white"
                 href={wa}
                 aria-label="Contact Moveit Cars on WhatsApp"
               >
                 WhatsApp
               </a>
               <a
-                className="transition hover:text-white"
+                className="footer-link hover:text-white"
                 href="mailto:Sales@moveitcars.com"
               >
                 Sales@moveitcars.com
@@ -781,8 +798,10 @@ function Footer() {
                 referrerPolicy="no-referrer-when-downgrade"
               />
               <span className="block px-4 py-3 text-xs leading-relaxed text-neutral-400">
-                Office 29, 1st Floor Executive Complex, G-8 Markaz, Islamabad
-                44000
+                <span className="footer-link inline-block">
+                  Office 29, 1st Floor Executive Complex, G-8 Markaz, Islamabad
+                  44000
+                </span>
               </span>
             </a>
           </div>
