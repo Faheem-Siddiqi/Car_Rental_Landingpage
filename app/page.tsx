@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { Header } from "@/components/header";
 import { FleetInquiryModal } from "@/components/fleet-inquiry-modal";
+import { ScrollExperience } from "@/components/scroll-experience";
 import fleetData from "@/data/fleet.json";
 import faqData from "@/data/faqs.json";
 import routesData from "@/data/routes.json";
@@ -193,7 +194,8 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main>
+      <ScrollExperience />
+      <main className="scroll-stage">
         <section id="home" className="bg-white pb-16 pt-28 sm:pt-36">
           <div className="shell">
             <Label>

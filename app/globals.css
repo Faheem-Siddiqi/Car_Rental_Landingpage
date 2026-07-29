@@ -15,3 +15,12 @@ html{scrollbar-color:#525252 #e5e5e5;scrollbar-width:auto}
 
 @media(hover:none){.mouse-glow::before{display:none}}
 @media(prefers-reduced-motion:reduce){.mouse-glow::before{transition:none}}
+
+/* Scroll-led motion: a subtle road progress marker plus staged section reveals. */
+.scroll-road{position:fixed;z-index:60;right:0;bottom:0;left:0;height:3px;background:rgba(255,255,255,.5);pointer-events:none;mix-blend-mode:difference}
+.scroll-road-fill{position:absolute;inset:0;background:#fff;transform-origin:left center}
+.scroll-car{position:absolute;bottom:8px;display:grid;width:30px;height:30px;place-items:center;border:1px solid rgba(255,255,255,.35);border-radius:999px;background:#fff;color:#000;box-shadow:0 8px 28px rgba(0,0,0,.22);transform:translateX(-50%);will-change:left,transform}
+.motion-ready .scroll-stage .section .shell>*{opacity:0}
+.motion-ready .scroll-stage .section img:not([aria-hidden=true]){transform-origin:center;will-change:transform,opacity}
+@media(max-width:640px){.scroll-car{bottom:6px;width:26px;height:26px}.scroll-road{height:2px}}
+@media(prefers-reduced-motion:reduce){.scroll-road{display:none}.motion-ready .scroll-stage .section .shell>*{opacity:1}}
